@@ -20,8 +20,8 @@ public class DepartmentButton : MonoBehaviour {
 	#region Event Listeners
 	
 	
-	private void OnPressed() {
-		//SequenceChecker
+	public void OnPressed() {
+		SequenceChecker.GetPlayersSequence(Department);
 	}
 	
 	

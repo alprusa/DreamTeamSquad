@@ -2,14 +2,11 @@
 using System.Collections;
 
 public class GameStateController : MonoBehaviour {
+	public GameIntroController GameIntroController;
+	public GameMainController GameMainController;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public void OnIntroTransition() {
+		GameIntroController.Show(false);
+		GameMainController.Show(true);
 	}
 }

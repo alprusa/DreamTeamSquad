@@ -24,7 +24,7 @@ public class SequenceChecker : MonoBehaviour {
 	}
 
 
-	public void GetPlayersSequence(Department val){
+	public void GetPlayersSequence(Department val) {
 		if (sequenceObjects.sequence [currentIndex] != val)
 			Debug.Log ("Fail");
 		

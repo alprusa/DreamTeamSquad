@@ -9,13 +9,21 @@ public enum Department {
 
 public class DepartmentButton : MonoBehaviour {
 
+	public Department Department;
+	public SequenceChecker SequenceChecker;
+
 	// Use this for initialization
 	void Start () {
 		
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	#region Event Listeners
 	
+	
+	public void OnPressed() {
+		SequenceChecker.GetPlayersSequence(Department);
 	}
+	
+	
+	#endregion
 }

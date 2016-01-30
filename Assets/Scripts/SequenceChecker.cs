@@ -3,6 +3,7 @@ using System.Collections;
 
 public class SequenceChecker : MonoBehaviour {
 
+	public GameStateController GameStateController;
 	public SequenceObjects sequenceObjects;
 
 	private int currentIndex;
@@ -25,8 +26,10 @@ public class SequenceChecker : MonoBehaviour {
 
 
 	public void GetPlayersSequence(Department val) {
-		if (sequenceObjects.sequence [currentIndex] != val)
+		if (sequenceObjects.sequence [currentIndex] != val) {
 			Debug.Log ("Fail");
+			GameStateController.OnMainTransition();
+		}
 		
 		if(sequenceObjects.sequence.Count >= currentIndex) currentIndex++;
 	}

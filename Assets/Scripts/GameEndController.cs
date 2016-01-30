@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameIntroController : MonoBehaviour {
+public class GameEndController : MonoBehaviour {
 
 	public CanvasGroup CanvasGroup;
 	

@@ -3,18 +3,18 @@ using System.Collections;
 
 public class GameMainController : MonoBehaviour {
 
-	private CanvasGroup canvasGroup;
+	public CanvasGroup CanvasGroup;
 	
 	public void Start() {
-		canvasGroup = GetComponent<CanvasGroup>();
-		if(canvasGroup == null) {
+		CanvasGroup = GetComponent<CanvasGroup>();
+		if(CanvasGroup == null) {
 			Debug.LogError("Invalid controller object");
 		}
 	}
 
 	public void Show(bool flag) {
-		canvasGroup.alpha = flag ? 1 : 0;
-		canvasGroup.interactable = flag;
-		canvasGroup.blocksRaycasts = flag;
+		CanvasGroup.alpha = flag ? 1 : 0;
+		CanvasGroup.interactable = flag;
+		CanvasGroup.blocksRaycasts = flag;
 	}
 }

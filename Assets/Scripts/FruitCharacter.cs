@@ -7,10 +7,9 @@ public enum Department {
 	C
 }
 
-public class DepartmentButton : MonoBehaviour {
+public class FruitCharacter : MonoBehaviour {
 
 	public Department Department;
-	public SequenceChecker SequenceChecker;
 
 	// Use this for initialization
 	void Start () {
@@ -21,7 +20,7 @@ public class DepartmentButton : MonoBehaviour {
 	
 	
 	public void OnPressed() {
-		SequenceChecker.GetPlayersSequence(Department);
+		//SequenceChecker.GetPlayersSequence(Department);
 	}
 	
 	

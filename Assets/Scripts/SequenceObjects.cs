@@ -8,33 +8,6 @@ public class SequenceObjects {
 	public string value;
 	public int amount;
 
-	public List<Department> sequence;
-
-	public int sequenceLength = 10;
-
-	// Use this for initialization
-	public SequenceObjects() {
-		sequence = new List<Department> ();
-
-		string tempStr = "";
-		for (int i = 0; i < sequenceLength; i++) {
-			string rand = Random.Range (0, 2).ToString();
-			switch (rand) {
-			case "0":
-				sequence.Add(Department.A);
-				break;
-			case "1":
-				sequence.Add(Department.B);
-				break;
-			default:
-				sequence.Add(Department.C);
-				break;
-			}
-			tempStr += sequence [i].ToString ();
-		}
-		Debug.Log (tempStr);
-	}
-
 	//function for failer?
 	//
 }

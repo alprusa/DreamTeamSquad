@@ -18,19 +18,19 @@ public class SequenceObjects {
 
 		string tempStr = "";
 		for (int i = 0; i < sequenceLength; i++) {
-			string rand = Random.Range (0.0f, 2.0f).ToString();
+			string rand = Random.Range (0, 2).ToString();
 			switch (rand) {
-			case "0.0":
+			case "0":
 				sequence.Add(Department.A);
 				break;
-			case "1.0":
+			case "1":
 				sequence.Add(Department.B);
 				break;
 			default:
 				sequence.Add(Department.C);
 				break;
 			}
-			tempStr = sequence [i].ToString ();
+			tempStr += sequence [i].ToString ();
 		}
 		Debug.Log (tempStr);
 	}

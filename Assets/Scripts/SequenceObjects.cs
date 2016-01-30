@@ -16,19 +16,23 @@ public class SequenceObjects {
 	public SequenceObjects() {
 		sequence = new List<Department> ();
 
+		string tempStr = "";
 		for (int i = 0; i < sequenceLength; i++) {
-			switch (Random.Range (0.0f, 2.0f)) {
-			case 0.0f:
-				sequence [i] = Department.A;
+			string rand = Random.Range (0.0f, 2.0f).ToString();
+			switch (rand) {
+			case "0.0":
+				sequence.Add(Department.A);
 				break;
-			case 1.0f:
-				sequence[i] = Department.B;
+			case "1.0":
+				sequence.Add(Department.B);
 				break;
-			case 2.0f:
-				sequence [i] = Department.C;
+			default:
+				sequence.Add(Department.C);
 				break;
 			}
+			tempStr = sequence [i].ToString ();
 		}
+		Debug.Log (tempStr);
 	}
 
 	//function for failer?

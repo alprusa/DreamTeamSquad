@@ -15,14 +15,19 @@ public class SequenceChecker : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (Input.GetKey ("q"))
+			GetPlayersSequence (Department.A);
+		if (Input.GetKey ("w"))
+			GetPlayersSequence (Department.B);
+		if (Input.GetKey ("e"))
+			GetPlayersSequence (Department.C);
 	}
 
 
 	public void GetPlayersSequence(Department val){
-		if (sequenceObjects [currentIndex] != val)
+		if (sequenceObjects.sequence [currentIndex] != val)
 			Debug.Log ("Fail");
 		
-		currentIndex++;
+		if(sequenceObjects.sequence.Count >= currentIndex) currentIndex++;
 	}
 }

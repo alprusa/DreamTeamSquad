@@ -8,16 +8,16 @@ public class GameMainController : MonoBehaviour {
 	public Text custom;
 	public void Shopping(){
 		Shop.SetActive (true);
-		counter++;
 		custom.text = "Exit";
-				if (counter > 2) {
-			custom.text = "Customize";
-			Shop.SetActive (false);
-			counter = 0;
-		}
+			if (counter > 1) {
+				custom.text = "Customize";
+				Shop.SetActive (false);
+				counter = 0;
+			}
+		counter++;
 
 	}
-	public CanvasGroup CanvasGroup;
+	/*public CanvasGroup CanvasGroup;
 	
 	public void Start() {
 		CanvasGroup = GetComponent<CanvasGroup>();
@@ -30,6 +30,6 @@ public class GameMainController : MonoBehaviour {
 		CanvasGroup.alpha = flag ? 1 : 0;
 		CanvasGroup.interactable = flag;
 		CanvasGroup.blocksRaycasts = flag;
-	}
+	}*/
 
 }

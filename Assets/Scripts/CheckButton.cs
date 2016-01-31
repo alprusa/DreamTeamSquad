@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class CheckButton : MonoBehaviour {
+	public GameMainController GameMainController;
 	public SpeechBubble SpeechBubble;
 	public Image CheckImage;
 	public Text CheckText;
@@ -17,6 +18,7 @@ public class CheckButton : MonoBehaviour {
 	}
 
 	public void Toggle() {
+		GameMainController.TogglePlayerCheckedIn();
 		checkIn = !checkIn;
 		if(checkIn) {
 			CheckImage.color = Color.green;
@@ -25,5 +27,6 @@ public class CheckButton : MonoBehaviour {
 			CheckImage.color = Color.red;
 			CheckText.text = "Check Out";
 		}
+		
 	}
 }

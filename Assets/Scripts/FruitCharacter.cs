@@ -12,15 +12,11 @@ public class FruitCharacter : MonoBehaviour {
 	// GUI
 	public SpriteRenderer SpriteRender;
 	public TextMesh NameTextMesh;
+	public TextMesh HoursTextMesh;
 
 	public FruitQuality Quality;
 	
 	private FruitModel cachedModel;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
 	public void InitWithModel(FruitModel model) {
 		cachedModel = model;
@@ -34,6 +30,8 @@ public class FruitCharacter : MonoBehaviour {
 		}
 		
 		NameTextMesh.text = cachedModel.Name;
+		HoursTextMesh.text = (cachedModel.CheckedIn ? "Checked in: " : "Checked out: ") +
+			cachedModel.Hours;
 	}
 	
 	#region Event Listeners

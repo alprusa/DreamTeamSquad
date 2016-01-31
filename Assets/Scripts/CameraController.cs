@@ -114,6 +114,10 @@ public class CameraController : MonoBehaviour {
 		return _currentZoom;
 	}
 	
+	public void SetTargetPosition(Vector3 targetPos) {
+		this.targetPos = targetPos;
+	}
+	
 	/// <summary>
 	/// Gets the levelbounds coordinates to lock the camera into the level
 	/// </summary>

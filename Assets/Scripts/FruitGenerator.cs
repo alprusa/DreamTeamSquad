@@ -30,11 +30,18 @@ public class FruitGenerator : MonoBehaviour {
 			
 			FruitModel fruitModel = new FruitModel();
 			fruitModel.Name = randomString;
-			fruitModel.Hours = Random.Range(5, 15);
+			fruitModel.Hours = Random.Range(0, 11);
+			fruitModel.CheckedIn = (Random.value <= 0.25);
 			FruitModels.Add(fruitModel);
 		}
 		
 		StartCoroutine(SpawnFruits());
+	}
+	
+	public FruitCharacter ChoosePlayerFruit() {
+		int randIndex = Random.Range (0, Fruits.Count);
+		FruitCharacter fruit = Fruits[randIndex];
+		return fruit;
 	}
 	
 	private IEnumerator SpawnFruits() {

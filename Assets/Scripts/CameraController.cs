@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class CameraController : MonoBehaviour {
-	public float CameraSpeed = 0.1f;
+	public float CameraSpeed = 10f;
 	public float InitialZoom = 7.5f;
 	public float ZoomSpeed = 0.4f;
 	
@@ -26,9 +26,9 @@ public class CameraController : MonoBehaviour {
 	
 	void Start() {
 		// we get the camera component
-		_camera=GetComponent<Camera>();
+		_camera = GetComponent<Camera>();
 		
-		_currentZoom=InitialZoom;
+		_currentZoom = InitialZoom;
 		
 		_levelBounds = GameObject.FindGameObjectWithTag("LevelBounds").GetComponent<LevelLimits>();
 		
@@ -36,35 +36,27 @@ public class CameraController : MonoBehaviour {
 	}
 	
 	void Update() {
-	
 	#if (UNITY_IPHONE || UNITY_ANDROID) && !UNITY_EDITOR
-		Debug.Log (Input.touchCount);
-		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) {
-			Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
-			targetPos = transform.lastPosition + new Vector3(-touchDeltaPosition.x * CameraSpeed, -touchDeltaPosition.y * CameraSpeed, 0);
+		if (Input.touchCount > 0) {
+			if(Input.GetTouch(0).phase == TouchPhase.Moved || Input.GetTouch(0).phase == TouchPhase.Ended) {
+				Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+				targetPos = transform.position + new Vector3(-touchDeltaPosition.x * CameraSpeed, -touchDeltaPosition.y * CameraSpeed, 0);
+			}
 		}
-		
-		if (Input.touchCount >= 2)
-		{
-			Vector2 touch0, touch1;
-			float distance;
-			touch0 = Input.GetTouch(0).position;
-			touch1 = Input.GetTouch(1).position;
-			distance = Vector2.Distance(touch0, touch1);
-			this.GetComponent<Camera>().orthographicSize = 
-		}
-		#else
+	#else
 		if (Input.GetMouseButtonDown(0)) {
 			lastPosition = Input.mousePosition;
 		}
 		
 		if (Input.GetMouseButton(0)) {
+			float sizeRatio = _camera.orthographicSize / 32;
 			Vector3 delta = Input.mousePosition - lastPosition;
-			targetPos = transform.position + new Vector3(delta.x * CameraSpeed, delta.y * CameraSpeed, 0);
+			targetPos = transform.position + new Vector3(-delta.x * CameraSpeed, -delta.y * CameraSpeed, 0);
 			lastPosition = Input.mousePosition;
 		}
 	#endif
 	
+		targetPos.z = -10;
 	}
 	
 	void LateUpdate() {

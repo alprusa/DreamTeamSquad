@@ -1,8 +1,9 @@
 fileFormatVersion: 2
-guid: a94c9a7eb94ceec4a8d67a1890e22e51
+guid: ef605ce33f08947a890511715eb2873e
+timeCreated: 1454210803
+licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: ResetButton
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -26,9 +27,9 @@ TextureImporter:
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
-  maxTextureSize: 256
+  maxTextureSize: 2048
   textureSettings:
-    filterMode: 1
+    filterMode: 0
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -43,7 +44,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []

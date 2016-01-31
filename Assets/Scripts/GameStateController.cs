@@ -13,6 +13,7 @@ public class GameStateController : MonoBehaviour {
 	}
 
 	public void OnIntroTransition() {
+		Debug.Log ("heyo");
 		GameIntroController.Show(false);
 		GameMainController.Show(true);
 	}

@@ -1,20 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameIntroController : MonoBehaviour {
-
-	public CanvasGroup CanvasGroup;
+public class GameIntroController : Controller {
+	public GameStateController GameStateController;
+	public Controller FirstTimePromptController;
+	public FirstTimeController FirstTimeController;
 	
-	public void Start() {
-		CanvasGroup = GetComponent<CanvasGroup>();
-		if(CanvasGroup == null) {
-			Debug.LogError("Invalid controller object");
-		}
+	protected override void Start() {
+		FirstTimePromptController.Show (true);
+		ShowFirstTime(false);
 	}
-
-	public void Show(bool flag) {
-		CanvasGroup.alpha = flag ? 1 : 0;
-		CanvasGroup.interactable = flag;
-		CanvasGroup.blocksRaycasts = flag;
+	
+	public void ShowFirstTime(bool flag) {
+		FirstTimePromptController.Show (!flag);
+		FirstTimeController.Show(flag);
+	}
+	
+	public void OnFinishFirstTime() {
+		GameStateController.OnIntroTransition();
 	}
 }

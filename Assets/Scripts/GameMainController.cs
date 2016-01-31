@@ -6,27 +6,34 @@ public class GameMainController : Controller {
 	public CameraController CameraController;
 	public SpeechBubble SpeechBubble;
 	public FruitGenerator FruitGenerator;
+	public CheckButton CheckButton;
 	
 	private FruitCharacter playerFruitCharacter;
 	
 	public void InitWithPlayer() {
 		SpeechBubble.SetText ("Good morning, " + PlayerData.name + "!");
+		
+		StartCoroutine(WaitForFruits());
+	}
+	
+	private IEnumerator WaitForFruits() {
+		while(!FruitGenerator.HasFinishedGenerating()) {
+			yield return null;
+		}
+		
 		playerFruitCharacter = FruitGenerator.ChoosePlayerFruit();
 		CameraController.SetTargetPosition(new Vector3(playerFruitCharacter.transform.position.x, 
-			playerFruitCharacter.transform.position.y, CameraController.transform.position.z));
+		                                               playerFruitCharacter.transform.position.y, CameraController.transform.position.z));
 		UpdatePlayerFruit();
 	}
 	
 	public void TogglePlayerCheckedIn() {
 		PlayerData.checkedIn = !PlayerData.checkedIn;
-		Debug.Log (PlayerData.checkedIn);
+		CheckButton.SetButton();
 		UpdatePlayerFruit();
 	}
 	
 	public void UpdatePlayerFruit() {
-		
-		Debug.Log (playerFruitCharacter);
-		
 		FruitModel playerModel = new FruitModel();
 		playerModel.Name = PlayerData.name;
 		playerModel.Hours = 0;

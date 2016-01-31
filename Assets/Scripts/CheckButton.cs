@@ -19,14 +19,17 @@ public class CheckButton : MonoBehaviour {
 
 	public void Toggle() {
 		GameMainController.TogglePlayerCheckedIn();
-		checkIn = !checkIn;
-		if(checkIn) {
+		SetButton();
+	}
+	
+	public void SetButton() {
+		Debug.Log (PlayerData.checkedIn);
+		if(!PlayerData.checkedIn) {
 			CheckImage.color = Color.green;
 			CheckText.text = "Check In";
 		} else {
 			CheckImage.color = Color.red;
 			CheckText.text = "Check Out";
 		}
-		
 	}
 }

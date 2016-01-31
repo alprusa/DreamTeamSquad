@@ -9,6 +9,8 @@ public class FruitGenerator : MonoBehaviour {
 	
 	private List<FruitModel> FruitModels = new List<FruitModel>();
 	private List<FruitCharacter> Fruits = new List<FruitCharacter>();
+	
+	private bool hasFinishedGenerating = false;
 
 	// Use this for initialization
 	void Start () {
@@ -77,5 +79,11 @@ public class FruitGenerator : MonoBehaviour {
 			
 			yield return null;
 		}
+		
+		this.hasFinishedGenerating = true;
+	}
+	
+	public bool HasFinishedGenerating() {
+		return this.hasFinishedGenerating;
 	}
 }

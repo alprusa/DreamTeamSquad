@@ -7,9 +7,13 @@ public class GameStateController : MonoBehaviour {
 	public GameEndController GameEndController;
 	
 	void Start() {
-		GameIntroController.Show (true);
-		GameMainController.Show (false);
-		GameEndController.Show(false);
+		if(PlayerData.name == null || PlayerData.name.Length == 0) {
+			GameIntroController.Show (true);
+			GameMainController.Show (false);
+			GameEndController.Show(false);
+		} else {
+			OnIntroTransition();
+		}
 	}
 
 	public void OnIntroTransition() {

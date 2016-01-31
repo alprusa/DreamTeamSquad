@@ -24,4 +24,8 @@ public class AppleController : Controller {
 			custom.text = "Customize";
 		}
 	}
+	
+	public void GoBack() {
+		Application.LoadLevel("tempscene");
+	}
 }

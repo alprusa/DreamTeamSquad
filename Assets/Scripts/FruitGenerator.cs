@@ -11,6 +11,7 @@ public class FruitGenerator : MonoBehaviour {
 	private List<FruitCharacter> Fruits = new List<FruitCharacter>();
 	
 	private bool hasFinishedGenerating = false;
+	private float elapsedTime = 0f;
 
 	// Use this for initialization
 	void Start () {
@@ -32,8 +33,8 @@ public class FruitGenerator : MonoBehaviour {
 			
 			FruitModel fruitModel = new FruitModel();
 			fruitModel.Name = randomString;
-			fruitModel.Hours = Random.Range(0, 11);
-			fruitModel.CheckedIn = (Random.value <= 0.25);
+			fruitModel.Hours = Random.Range(0f, 11f);
+			fruitModel.CheckedIn = (Random.value <= 0.75);
 			FruitModels.Add(fruitModel);
 		}
 		
@@ -43,6 +44,7 @@ public class FruitGenerator : MonoBehaviour {
 	public FruitCharacter ChoosePlayerFruit() {
 		int randIndex = Random.Range (0, Fruits.Count);
 		FruitCharacter fruit = Fruits[randIndex];
+		fruit.Freeze(false);
 		return fruit;
 	}
 	
@@ -73,6 +75,7 @@ public class FruitGenerator : MonoBehaviour {
 			}
 			
 			FruitCharacter fruitCharacter = (FruitCharacter) Instantiate(FruitPrefab, spawnPosition, Quaternion.identity);
+			fruitCharacter.Freeze(true);
 			fruitCharacter.InitWithModel(model);
 			fruitCharacter.transform.SetParent(FruitParent);
 			Fruits.Add(fruitCharacter);

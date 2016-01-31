@@ -7,8 +7,6 @@ public class CheckButton : MonoBehaviour {
 	public SpeechBubble SpeechBubble;
 	public Image CheckImage;
 	public Text CheckText;
-
-	private bool checkIn = true;
 	
 	public void Check() {
 		PlayerData.currency += 5;

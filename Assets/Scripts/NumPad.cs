@@ -18,5 +18,6 @@ public class NumPad : MonoBehaviour {
 	}
 	public void Backspace(){
 		stringToEdit = stringToEdit.Substring (0, stringToEdit.Length - 1);
+		output.text = stringToEdit;
 	}
 }

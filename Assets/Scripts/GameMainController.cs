@@ -13,6 +13,7 @@ public class GameMainController : Controller {
 	public void InitWithPlayer() {
 		SpeechBubble.SetText ("Good morning, " + PlayerData.name + "!");
 		
+		CheckButton.SetButton();
 		StartCoroutine(WaitForFruits());
 	}
 	

@@ -4,7 +4,7 @@ public class SpriteText : MonoBehaviour
 {
 	void Start()
 	{		
-		GetComponent<MeshRenderer> ().sortingLayerName = "Default";
+		GetComponent<MeshRenderer> ().sortingLayerName = "Fruits";
 		GetComponent<MeshRenderer> ().sortingOrder = 0;
 	}
 }

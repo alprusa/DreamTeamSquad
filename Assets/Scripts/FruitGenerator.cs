@@ -24,7 +24,7 @@ public class FruitGenerator : MonoBehaviour {
 			"Boone"
 		};
 		
-		for(int i = 0; i < 100; i++) {
+		for(int i = 0; i < 32; i++) {
 			int randIndex = Random.Range(0, names.Count);
 			string randomString = names[ randIndex ];
 			
@@ -40,8 +40,8 @@ public class FruitGenerator : MonoBehaviour {
 	private IEnumerator SpawnFruits() {
 		float safeDistance = 6;
 		foreach(FruitModel model in FruitModels) {
-			float randomX = Random.Range (Limits.LeftLimit, Limits.RightLimit);
-			float randomY = Random.Range (Limits.BottomLimit, Limits.TopLimit);
+			float randomX = Random.Range (Limits.LeftLimit + 20, Limits.RightLimit - 20);
+			float randomY = Random.Range (Limits.BottomLimit + 30, Limits.TopLimit - 30);
 			Vector3 spawnPosition = new Vector3(randomX, randomY, 0);
 			bool foundValidLocation = false;
 			int attempts = 0;

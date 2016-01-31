@@ -10,6 +10,7 @@ public enum FruitQuality {
 public class FruitCharacter : MonoBehaviour {
 
 	// GUI
+	public SpriteRenderer SpriteRender;
 	public TextMesh NameTextMesh;
 
 	public FruitQuality Quality;
@@ -37,9 +38,14 @@ public class FruitCharacter : MonoBehaviour {
 	
 	#region Event Listeners
 	
+	public void OnMouseDown() {
+		SpriteRender.color = Color.gray;
+	}
 	
-	public void OnPressed() {
-		//SequenceChecker.GetPlayersSequence(Department);
+	public void OnMouseUp() {
+		SpriteRender.color = Color.white;
+		
+		
 	}
 	
 	

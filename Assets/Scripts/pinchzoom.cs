@@ -4,7 +4,7 @@ public class PinchZoom : MonoBehaviour
 {
 	public float perspectiveZoomSpeed = 0.5f;        // The rate of change of the field of view in perspective mode.
 	public float orthoZoomSpeed = 0.5f;        // The rate of change of the orthographic size in orthographic mode.
-
+	public GameObject background;
 
 	void Update()
 	{
@@ -28,9 +28,10 @@ public class PinchZoom : MonoBehaviour
 
 			// ... change the orthographic size based on the change in distance between the touches.
 			gameObject.GetComponent<Camera>().orthographicSize += deltaMagnitudeDiff * orthoZoomSpeed;
+			background.transform.localScale = new Vector3 (background.transform.localScale.x + deltaMagnitudeDiff * orthoZoomSpeed, background.transform.localScale.y + deltaMagnitudeDiff * orthoZoomSpeed, background.transform.localScale.z);
 
 			// Make sure the orthographic size never drops below zero.
-			gameObject.GetComponent<Camera>().orthographicSize = Mathf.Max(GetComponent<Camera>().orthographicSize, 0.1f);
-		}
+			gameObject.GetComponent<Camera>().orthographicSize = Mathf.Max(GetComponent<Camera>().orthographicSize, 7.5f);
+	}
 	}
 }

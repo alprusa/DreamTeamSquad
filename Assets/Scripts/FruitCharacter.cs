@@ -54,6 +54,10 @@ public class FruitCharacter : MonoBehaviour {
 		NameTextMesh.text = cachedModel.Name;
 	}
 	
+	public string GetName() {
+		return cachedModel.Name;
+	}
+	
 	public void Freeze(bool flag) {
 		GetComponent<Animator>().speed = (flag ? 0 : 1);
 	}

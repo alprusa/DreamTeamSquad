@@ -9,13 +9,13 @@ public class FruitGenerator : MonoBehaviour {
 	
 	private List<FruitModel> FruitModels = new List<FruitModel>();
 	private List<FruitCharacter> Fruits = new List<FruitCharacter>();
-	
+	private List<string> names;
 	private bool hasFinishedGenerating = false;
 	private float elapsedTime = 0f;
 
 	// Use this for initialization
 	void Start () {
-		List<string> names = new List<string>() {
+		names = new List<string>() {
 			"Hurley",
 			"Sayid",
 			"Sawyer",
@@ -39,6 +39,9 @@ public class FruitGenerator : MonoBehaviour {
 		}
 		
 		StartCoroutine(SpawnFruits());
+	}
+	public List<FruitCharacter> GetFruits() {
+		return Fruits;
 	}
 	
 	public FruitCharacter ChoosePlayerFruit() {

@@ -19,14 +19,25 @@ public class FruitCharacter : MonoBehaviour {
 	
 	private FruitModel cachedModel;
 	
-	private float elapsedTime = 0f;
-	
 	void Update() {
-		elapsedTime += Time.deltaTime;
-		
+		if(cachedModel == null)
+			return;
+			
 		HoursTextMesh.text = (cachedModel.CheckedIn ? "Checked in: " : "Checked out");
-		if(cachedModel.CheckedIn)
-			HoursTextMesh.text += this.GetTimeStr(cachedModel.Hours + elapsedTime / 3600f);
+		
+		float elapsedTime = Time.deltaTime / 3600f;
+		if(cachedModel.Name == PlayerData.name) {
+			PlayerData.hours += elapsedTime;
+			cachedModel.Hours = PlayerData.hours;
+			
+			if(PlayerData.checkedIn)
+				HoursTextMesh.text += GetTimeStr(PlayerData.hours);
+		} else {
+			cachedModel.Hours += elapsedTime;
+				
+			if(cachedModel.CheckedIn)
+				HoursTextMesh.text += GetTimeStr(cachedModel.Hours);
+		}
 	}
 	
 	public void InitWithModel(FruitModel model) {

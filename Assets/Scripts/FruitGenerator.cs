@@ -49,7 +49,7 @@ public class FruitGenerator : MonoBehaviour {
 	}
 	
 	private IEnumerator SpawnFruits() {
-		float safeDistance = 6;
+		float safeDistance = 8;
 		foreach(FruitModel model in FruitModels) {
 			float randomX = Random.Range (Limits.LeftLimit + 20, Limits.RightLimit - 20);
 			float randomY = Random.Range (Limits.BottomLimit + 30, Limits.TopLimit - 30);

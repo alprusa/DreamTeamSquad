@@ -39,6 +39,7 @@ public class GameMainController : Controller {
 		playerModel.Name = PlayerData.name;
 		playerModel.Hours = 0;
 		playerModel.CheckedIn = PlayerData.checkedIn;
-		playerFruitCharacter.InitWithModel(playerModel);
+		if(playerFruitCharacter != null)
+			playerFruitCharacter.InitWithModel(playerModel);
 	}
 }

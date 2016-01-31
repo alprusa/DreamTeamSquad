@@ -19,6 +19,7 @@ public class BuildSlotsController : Controller {
 	}
 	
 	public void PrepareSlotsForPlacement(DecorationModel model) {
+		Debug.Log (model.cost);
 		savedModel = model;
 		for (int i = 0; i < BuildSlots.Length; i++) {
 			BuildSlots[i].PrepareForPlacement();
@@ -46,7 +47,6 @@ public class BuildSlotsController : Controller {
 	}
 	
 	public void RemoveDecoration(int slotIndex) {
-		Debug.Log (slotIndex);
 		BuildSlots[slotIndex].InitWithModel(null);
 		
 		StopSlotsPlacement();

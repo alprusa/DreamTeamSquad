@@ -21,7 +21,6 @@ public class CheckButton : MonoBehaviour {
 	}
 	
 	public void SetButton() {
-		Debug.Log (PlayerData.checkedIn);
 		if(!PlayerData.checkedIn) {
 			CheckImage.color = Color.green;
 			CheckText.text = "Check In";

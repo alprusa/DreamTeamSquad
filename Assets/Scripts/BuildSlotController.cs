@@ -46,7 +46,7 @@ public class BuildSlotController : Controller {
 		if(BuildSlotsController.GetSavedModel() != null) {
 			BuildSlotsController.PlaceDecoration(this.slotId);
 		} else {
-			
+			Remove ();
 		}
 	}
 	

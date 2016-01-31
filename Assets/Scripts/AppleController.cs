@@ -30,6 +30,10 @@ public class AppleController : Controller {
 	}
 	
 	public void GoBack() {
-		if(back.text == "Go Back")Application.LoadLevel("tempscene");
+		if(back.text == "Go Back")
+			Application.LoadLevel("tempscene");
+		else if(back.text == "Remove") {
+			ShopController.RemoveDecoration();
+		}
 	}
 }

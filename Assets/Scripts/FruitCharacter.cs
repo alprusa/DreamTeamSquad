@@ -43,9 +43,12 @@ public class FruitCharacter : MonoBehaviour {
 	}
 	
 	public void OnMouseUp() {
+		if(PlayerData.name == null || PlayerData.name.Length == 0)
+			return;
+			
 		SpriteRender.color = Color.white;
 		
-		
+		Application.LoadLevel("tree_branch");
 	}
 	
 	

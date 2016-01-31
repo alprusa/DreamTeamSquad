@@ -11,7 +11,7 @@ public class GameMainController : Controller {
 	private FruitCharacter playerFruitCharacter;
 	
 	public void InitWithPlayer() {
-		SpeechBubble.SetText ("Good morning, " + PlayerData.name + "!");
+		SpeechBubble.SetText ("Good morning, " + PlayerData.name + "!\n" + "You have " + PlayerData.currency + " apple bits.");
 		
 		CheckButton.SetButton();
 		StartCoroutine(WaitForFruits());

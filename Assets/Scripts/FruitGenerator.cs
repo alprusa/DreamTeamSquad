@@ -78,8 +78,8 @@ public class FruitGenerator : MonoBehaviour {
 	private IEnumerator SpawnFruits() {
 		float safeDistance = 8;
 		foreach(FruitModel model in FruitModels) {
-			float randomX = Random.Range (Limits.LeftLimit + 20, Limits.RightLimit - 20);
-			float randomY = Random.Range (Limits.BottomLimit + 30, Limits.TopLimit - 30);
+			float randomX = Random.Range (Limits.LeftLimit + 15, Limits.RightLimit - 15);
+			float randomY = Random.Range (Limits.BottomLimit + 15, Limits.TopLimit - 15);
 			Vector3 spawnPosition = new Vector3(randomX, randomY, 0);
 			bool foundValidLocation = false;
 			int attempts = 0;
@@ -88,8 +88,8 @@ public class FruitGenerator : MonoBehaviour {
 				foreach(FruitCharacter character in Fruits) {
 					float dist = Vector2.Distance(character.transform.position, spawnPosition);
 					if(dist <= safeDistance) {
-						randomX = Random.Range (Limits.LeftLimit, Limits.RightLimit);
-						randomY = Random.Range (Limits.BottomLimit, Limits.TopLimit);
+						randomX = Random.Range (Limits.LeftLimit + 15, Limits.RightLimit - 15);
+						randomY = Random.Range (Limits.BottomLimit + 15, Limits.TopLimit - 15);
 						spawnPosition = new Vector3(randomX, randomY, 0);
 						foundValidLocation = false;
 						break;

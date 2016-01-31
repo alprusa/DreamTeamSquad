@@ -31,7 +31,7 @@ public class PinchZoom : MonoBehaviour
 			background.transform.localScale = new Vector3 (background.transform.localScale.x + deltaMagnitudeDiff * orthoZoomSpeed, background.transform.localScale.y + deltaMagnitudeDiff * orthoZoomSpeed, background.transform.localScale.z);
 
 			// Make sure the orthographic size never drops below zero.
-			gameObject.GetComponent<Camera>().orthographicSize = Mathf.Max(GetComponent<Camera>().orthographicSize, 7.5f);
-	}
+			gameObject.GetComponent<Camera>().orthographicSize = Mathf.Clamp(GetComponent<Camera>().orthographicSize, 7.5f, 60f);
+		}
 	}
 }

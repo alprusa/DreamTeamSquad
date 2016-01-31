@@ -24,12 +24,36 @@ public class FruitGenerator : MonoBehaviour {
 			"Jack",
 			"Walt",
 			"John",
-			"Boone"
+			"Boone",
+			"Alisa",
+			"Jonathan",
+			"Kory",
+			"Kevin",
+			"Max",
+			"Alison",
+			"David",
+			"Arnold",
+			"Jason",
+			"Freddy",
+			"Chad",
+			"James",
+			"Ron",
+			"Harry",
+			"Hermione",
+			"Severus",
+			"Alan",
+			"Dumbledore",
+			"Elrond",
+			"Shephard",
+			"Luke",
+			"Darth",
+			"Alice",
+			"Tiffany",
+			"Scarlet"
 		};
 		
 		for(int i = 0; i < 32; i++) {
-			int randIndex = Random.Range(0, names.Count);
-			string randomString = names[ randIndex ];
+			string randomString = names[ i ];
 			
 			FruitModel fruitModel = new FruitModel();
 			fruitModel.Name = randomString;

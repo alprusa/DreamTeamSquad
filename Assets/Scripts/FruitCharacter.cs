@@ -60,6 +60,8 @@ public class FruitCharacter : MonoBehaviour {
 	
 	public void Freeze(bool flag) {
 		GetComponent<Animator>().speed = (flag ? 0 : 1);
+		if(flag)
+			transform.rotation = Quaternion.identity;
 	}
 	
 	#region Event Listeners

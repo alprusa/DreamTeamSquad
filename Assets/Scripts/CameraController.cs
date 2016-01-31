@@ -36,11 +36,13 @@ public class CameraController : MonoBehaviour {
 	}
 	
 	void Update() {
+		float sizeRatio = _camera.orthographicSize / 32 * 5;
+		
 	#if (UNITY_IPHONE || UNITY_ANDROID) && !UNITY_EDITOR
 		if (Input.touchCount > 0) {
 			if(Input.GetTouch(0).phase == TouchPhase.Moved || Input.GetTouch(0).phase == TouchPhase.Ended) {
 				Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
-				targetPos = transform.position + new Vector3(-touchDeltaPosition.x * CameraSpeed, -touchDeltaPosition.y * CameraSpeed, 0);
+				targetPos = transform.position + new Vector3(-touchDeltaPosition.x * CameraSpeed * sizeRatio, -touchDeltaPosition.y * CameraSpeed * sizeRatio, 0);
 			}
 		}
 	#else
@@ -49,9 +51,8 @@ public class CameraController : MonoBehaviour {
 		}
 		
 		if (Input.GetMouseButton(0)) {
-			float sizeRatio = _camera.orthographicSize / 32;
 			Vector3 delta = Input.mousePosition - lastPosition;
-			targetPos = transform.position + new Vector3(-delta.x * CameraSpeed, -delta.y * CameraSpeed, 0);
+			targetPos = transform.position + new Vector3(-delta.x * CameraSpeed * sizeRatio, -delta.y * CameraSpeed * sizeRatio, 0);
 			lastPosition = Input.mousePosition;
 		}
 	#endif
